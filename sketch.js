@@ -173,6 +173,7 @@ function obtenerTiempoViaje(tiempoGolpe) {
 }
 
 
+
 // ==========================================
 // DIBUJO PRINCIPAL
 // ==========================================
@@ -186,12 +187,12 @@ function draw() {
   desplazamientoX = width - 900 * escalaPantalla;
   desplazamientoY = (height - 650 * escalaPantalla) / 2;
 
+  // Dibujar el juego
   push();
 
   translate(desplazamientoX, desplazamientoY);
   scale(escalaPantalla);
 
-  // Aumentar únicamente los elementos del juego
   push();
 
   translate(CENTRO_X, CENTRO_Y);
@@ -204,8 +205,17 @@ function draw() {
 
   pop();
   pop();
+
+  // Dibujar el video por separado
+  dibujarPanel();
+}
+
+
+// ==========================================
+// VIDEO LATERAL
+// ==========================================
+
 function dibujarPanel() {
-  // Posición fija del video en la pantalla
   let ancho = 200 * escalaPantalla;
   let alto = height;
 
@@ -227,31 +237,6 @@ function dibujarPanel() {
   line(x, y, x, alto);
 }
 
-function dibujarPanel() {
-  let x = desplazamientoX + 700 * escalaPantalla;
-  let y = desplazamientoY;
-
-  let ancho = 200 * escalaPantalla;
-  let alto = 650 * escalaPantalla;
-
-  imageMode(CORNER);
-
-  noStroke();
-  fill("#24002F");
-  rect(x, y, ancho, alto);
-
-  if (videoListo) {
-    image(videoChica, x, y, ancho, alto);
-  }
-
-  stroke("#00BFFF");
-  strokeWeight(3 * escalaPantalla);
-  line(x, y, x, y + alto);
-}
-
-// ==========================================
-// PANTALLA DE INICIO
-// ==========================================
 
 function dibujarInicio() {
   fill("#00BFFF");
