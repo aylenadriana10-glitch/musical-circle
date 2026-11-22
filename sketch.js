@@ -204,10 +204,27 @@ function draw() {
 
   pop();
   pop();
+function dibujarPanel() {
+  // Posición fija del video en la pantalla
+  let ancho = 200 * escalaPantalla;
+  let alto = height;
 
-  // El video se dibuja por separado
-  // conservando su posición y tamaño visual actuales
-  dibujarPanel();
+  let x = width - ancho;
+  let y = 0;
+
+  imageMode(CORNER);
+
+  noStroke();
+  fill("#24002F");
+  rect(x, y, ancho, alto);
+
+  if (videoListo) {
+    image(videoChica, x, y, ancho, alto);
+  }
+
+  stroke("#00BFFF");
+  strokeWeight(3);
+  line(x, y, x, alto);
 }
 
 function dibujarPanel() {
