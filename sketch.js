@@ -180,12 +180,15 @@ function obtenerTiempoViaje(tiempoGolpe) {
 function draw() {
   background("#24002F");
 
-  // Calcular escala para cubrir toda la pantalla
- escalaPantalla = max(width / 900, height / 650) * 0.90;
+  // Escala para que entre todo el juego
+escalaPantalla = min(width / 900, height / 650);
 
-  desplazamientoX = (width - 900 * escalaPantalla) / 2;
-  desplazamientoY = (height - 650 * escalaPantalla) / 2;
+// Reducir un poco el tamaño
+escalaPantalla *= 0.90;
 
+// Centrar horizontal y verticalmente
+desplazamientoX = (width - 900 * escalaPantalla) / 2;
+desplazamientoY = (height - 650 * escalaPantalla) / 2;
   push();
 
   translate(desplazamientoX, desplazamientoY);
