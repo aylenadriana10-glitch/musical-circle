@@ -184,7 +184,7 @@ function draw() {
 escalaPantalla = min(width / 900, height / 650);
 
 // Reducir un poco el tamaño
-escalaPantalla *= 0.85;
+escalaPantalla *= 0.90;
 
 // Centrar horizontal y verticalmente
 desplazamientoX = (width - 900 * escalaPantalla) / 2;
