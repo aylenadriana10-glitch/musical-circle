@@ -14,6 +14,10 @@ const radioClic = 26;
 const ESCALA_JUEGO = 1.10;
 const CENTRO_X = 370;
 const CENTRO_Y = 345;
+// ADAPTACION A PANTALLA COMPLETA
+let escalaPantalla = 1;
+let desplazamientoX = 0;
+let desplazamientoY = 0;
 
 // MUSICA
 let musicaJuego;
@@ -86,7 +90,8 @@ const secciones = [
 // ==========================================
 
 function setup() {
-  createCanvas(900, 650);
+  createCanvas(windowWidth, windowHeight);
+  pixelDensity(1);
   textAlign(CENTER, CENTER);
 
   videoChica = createVideo("chica.mp4", () => {
@@ -107,7 +112,6 @@ function setup() {
 
   describe("Juego musical interactivo con tres lineas y circulos.");
 }
-
 
 // ==========================================
 // VELOCIDAD MUSICAL
@@ -176,7 +180,18 @@ function obtenerTiempoViaje(tiempoGolpe) {
 function draw() {
   background("#24002F");
 
-  // Agrandar todos los elementos del juego
+  // Calcular escala para cubrir toda la pantalla
+  escalaPantalla = max(width / 900, height / 650);
+
+  desplazamientoX = (width - 900 * escalaPantalla) / 2;
+  desplazamientoY = (height - 650 * escalaPantalla) / 2;
+
+  push();
+
+  translate(desplazamientoX, desplazamientoY);
+  scale(escalaPantalla);
+
+  // Escala original del juego
   push();
 
   translate(CENTRO_X, CENTRO_Y);
@@ -189,10 +204,11 @@ function draw() {
 
   pop();
 
-  // El video queda independiente de la escala
+  // Panel de video
   dibujarPanel();
-}
 
+  pop();
+}
 // ==========================================
 // VIDEO LATERAL
 // ==========================================
@@ -565,9 +581,13 @@ function dibujarFinal() {
 // ==========================================
 function mousePressed() {
 
-  // Convertir la posición del mouse a las coordenadas originales
-  let mx = (mouseX - CENTRO_X) / ESCALA_JUEGO + CENTRO_X;
-  let my = (mouseY - CENTRO_Y) / ESCALA_JUEGO + CENTRO_Y;
+  // Convertir coordenadas de pantalla a coordenadas del juego
+  let mx = (mouseX - desplazamientoX) / escalaPantalla;
+  let my = (mouseY - desplazamientoY) / escalaPantalla;
+
+  // Deshacer la escala interna del juego
+  mx = (mx - CENTRO_X) / ESCALA_JUEGO + CENTRO_X;
+  my = (my - CENTRO_Y) / ESCALA_JUEGO + CENTRO_Y;
 
   if (pantalla === "inicio" || pantalla === "final") {
 
@@ -629,4 +649,7 @@ function iniciarPartida() {
   if (videoListo) {
     videoChica.loop();
   }
+}
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
