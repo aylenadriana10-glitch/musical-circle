@@ -210,6 +210,27 @@ function draw() {
   dibujarPanel();
 }
 
+function dibujarPanel() {
+  let x = desplazamientoX + 700 * escalaPantalla;
+  let y = desplazamientoY;
+
+  let ancho = 200 * escalaPantalla;
+  let alto = 650 * escalaPantalla;
+
+  imageMode(CORNER);
+
+  noStroke();
+  fill("#24002F");
+  rect(x, y, ancho, alto);
+
+  if (videoListo) {
+    image(videoChica, x, y, ancho, alto);
+  }
+
+  stroke("#00BFFF");
+  strokeWeight(3 * escalaPantalla);
+  line(x, y, x, y + alto);
+}
 
 // ==========================================
 // PANTALLA DE INICIO
