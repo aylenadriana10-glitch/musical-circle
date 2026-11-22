@@ -181,7 +181,7 @@ function draw() {
   background("#24002F");
 
   // Calcular escala para cubrir toda la pantalla
-  escalaPantalla = max(width / 900, height / 650);
+ escalaPantalla = max(width / 900, height / 650) * 0.90;
 
   desplazamientoX = (width - 900 * escalaPantalla) / 2;
   desplazamientoY = (height - 650 * escalaPantalla) / 2;
