@@ -11,7 +11,7 @@ const margenImpacto = 32;
 const radioClic = 26;
 
 // ESCALA GENERAL DEL JUEGO
-const ESCALA_JUEGO = 1.10;
+const ESCALA_JUEGO = 1.15;
 const CENTRO_X = 370;
 const CENTRO_Y = 345;
 // ADAPTACION A PANTALLA COMPLETA
@@ -180,21 +180,18 @@ function obtenerTiempoViaje(tiempoGolpe) {
 function draw() {
   background("#24002F");
 
-  // Escala para que entre todo el juego
-escalaPantalla = min(width / 900, height / 650);
+  escalaPantalla = min(width / 900, height / 650);
+  escalaPantalla *= 0.85;
 
-// Reducir un poco el tamaño
-escalaPantalla *= 0.90;
+  desplazamientoX = width - 900 * escalaPantalla;
+  desplazamientoY = (height - 650 * escalaPantalla) / 2;
 
-// Centrar horizontal y verticalmente
-desplazamientoX = 743;
-desplazamientoY = (height - 650 * escalaPantalla) / 2;
   push();
 
   translate(desplazamientoX, desplazamientoY);
   scale(escalaPantalla);
 
-  // Escala original del juego
+  // Aumentar únicamente los elementos del juego
   push();
 
   translate(CENTRO_X, CENTRO_Y);
@@ -206,30 +203,11 @@ desplazamientoY = (height - 650 * escalaPantalla) / 2;
   if (pantalla === "final") dibujarFinal();
 
   pop();
-
-  // Panel de video
-  dibujarPanel();
-
   pop();
-}
-// ==========================================
-// VIDEO LATERAL
-// ==========================================
 
-function dibujarPanel() {
-  imageMode(CORNER);
-
-  noStroke();
-  fill("#24002F");
-  rect(700, 0, 200, 650);
-
-  if (videoListo) {
-    image(videoChica, 700, 0, 200, 650);
-  }
-
-  stroke("#00BFFF");
-  strokeWeight(3);
-  line(700, 0, 700, 650);
+  // El video se dibuja por separado
+  // conservando su posición y tamaño visual actuales
+  dibujarPanel();
 }
 
 
