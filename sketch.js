@@ -187,7 +187,7 @@ escalaPantalla = min(width / 900, height / 650);
 escalaPantalla *= 0.90;
 
 // Centrar horizontal y verticalmente
-desplazamientoX = 200;
+desplazamientoX = 500;
 desplazamientoY = (height - 650 * escalaPantalla) / 2;
   push();
 
