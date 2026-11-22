@@ -244,27 +244,27 @@ function dibujarInicio() {
 
   textFont("Vineta BT");
   textSize(39);
-  text("MUSICAL CIRCLE", 350, 85);
+  text("MUSICAL CIRCLE", 250, 85);
 
   stroke("#00BFFF");
   strokeWeight(3);
 
   for (let y of [220, 300, 380]) {
-    line(100, y, 600, y);
+    line(0, y, 500, y);
   }
 
-  dibujarBoton("JUGAR", 350, 465);
+  dibujarBoton("JUGAR", 250, 465);
 
   fill("#FFFFFF");
   noStroke();
 
   textSize(13);
-  text("COMO JUGAR", 350, 535);
+  text("COMO JUGAR", 250, 535);
 
   textSize(10);
-  text("ESPERA A QUE LOS CIRCULOS", 350, 560);
-  text("LLEGUEN A LA ZONA BLANCA", 350, 580);
-  text("Y HAZ CLIC A TIEMPO", 350, 600);
+  text("ESPERA A QUE LOS CIRCULOS", 250, 560);
+  text("LLEGUEN A LA ZONA BLANCA", 250, 580);
+  text("Y HAZ CLIC A TIEMPO", 250, 600);
 }
 
 
@@ -570,13 +570,13 @@ function dibujarFinal() {
 
   fill("#FF007A");
   textSize(40);
-  text("GAME OVER", 350, 250);
+  text("GAME OVER", 250, 250);
 
   fill("#FFFFFF");
   textSize(25);
-  text("SCORE: " + puntos, 350, 320);
+  text("SCORE: " + puntos, 250, 320);
 
-  dibujarBoton("JUGAR DE NUEVO", 350, 420);
+  dibujarBoton("JUGAR DE NUEVO", 250, 420);
 }
 
 
