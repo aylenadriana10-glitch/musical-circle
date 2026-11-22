@@ -314,7 +314,7 @@ function dibujarPuntaje() {
     );
   } else {
     fill("#FFFFFF");
-    text("SCORE: " + puntos, 350, 55);
+   text("SCORE: " + puntos, 100, 80);
   }
 }
 
