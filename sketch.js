@@ -6,7 +6,7 @@ const lineas = [220, 325, 430];
 let circulos = [];
 let efectos = [];
 
-const lineaImpacto = 120;
+const lineaImpacto = 80;
 const margenImpacto = 32;
 const radioClic = 26;
 
@@ -341,7 +341,7 @@ function dibujarJuego() {
   strokeWeight(3);
 
   for (let y of lineas) {
-  line(-40, y, 660, y);
+ line(-80, y, 620, y);
 }
 
   // Linea de impacto
