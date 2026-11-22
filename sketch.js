@@ -341,8 +341,8 @@ function dibujarJuego() {
   strokeWeight(3);
 
   for (let y of lineas) {
-    line(40, y, 660, y);
-  }
+  line(-40, y, 660, y);
+}
 
   // Linea de impacto
   stroke("#FFFFFF");
