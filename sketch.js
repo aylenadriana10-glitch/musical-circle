@@ -6,7 +6,7 @@ const lineas = [220, 325, 430];
 let circulos = [];
 let efectos = [];
 
-const lineaImpacto = 20;
+const lineaImpacto = 10;
 const margenImpacto = 32;
 const radioClic = 26;
 
