@@ -181,8 +181,8 @@ function obtenerTiempoViaje(tiempoGolpe) {
 function draw() {
   background("#24002F");
 
-  escalaPantalla = min(width / 900, height / 650);
-  escalaPantalla *= 0.85;
+escalaPantalla = min(width / 900, height / 650);
+escalaPantalla *= 0.95;
 
   desplazamientoX = width - 900 * escalaPantalla;
   desplazamientoY = (height - 650 * escalaPantalla) / 2;
