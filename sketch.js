@@ -262,6 +262,7 @@ function dibujarPanel() {
 }
 
 function dibujarInicio() {
+  let centroX = 450;
   fill("#00BFFF");
   noStroke();
 
