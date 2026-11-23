@@ -1,4 +1,27 @@
+let particulasFondo = [];
 
+function crearParticulas() {
+  particulasFondo = [];
+
+  for (let i = 0; i < 180; i++) {
+    particulasFondo.push({
+      x: random(width),
+      y: random(height),
+      tamano: random(2, 5),
+      opacidad: random(30, 110)
+    });
+  }
+} 
+function dibujarFondo() {
+  background("#24002F");
+
+  noStroke();
+
+  for (let p of particulasFondo) {
+    fill(180, 70, 210, p.opacidad);
+    circle(p.x, p.y, p.tamano);
+  }
+}
 let pantalla = "inicio";
 let puntos = 0;
 
@@ -91,6 +114,7 @@ const secciones = [
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  crearParticulas();
   pixelDensity(1);
   textAlign(CENTER, CENTER);
 
@@ -209,7 +233,7 @@ escalaPantalla *= 0.95;
   // Dibujar el video por separado
   dibujarPanel();
 }
-
+dibujarFondo();
 
 // ==========================================
 // VIDEO LATERAL
@@ -657,3 +681,4 @@ function iniciarPartida() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
+
