@@ -582,6 +582,9 @@ function terminarPartida() {
 }
 
 function dibujarFinal() {
+  let centroX = 450;
+let centroY = 325; 
+  
   noStroke();
 
   textFont("Vineta BT");
