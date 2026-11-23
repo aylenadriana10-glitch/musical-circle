@@ -263,32 +263,34 @@ function dibujarPanel() {
 
 function dibujarInicio() {
   let centroX = 450;
+
   fill("#00BFFF");
   noStroke();
 
   textFont("Vineta BT");
   textSize(39);
-  text("MUSICAL CIRCLE", 350, 85);
+  textAlign(CENTER, CENTER);
+  text("MUSICAL CIRCLE", centroX, 85);
 
   stroke("#00BFFF");
   strokeWeight(3);
 
   for (let y of [220, 300, 380]) {
-    line(100, y, 600, y);
+    line(centroX - 250, y, centroX + 250, y);
   }
 
-  dibujarBoton("JUGAR", 350, 465);
+  dibujarBoton("JUGAR", centroX, 465);
 
   fill("#FFFFFF");
   noStroke();
 
   textSize(13);
-  text("COMO JUGAR", 350, 535);
+  text("COMO JUGAR", centroX, 535);
 
   textSize(10);
-  text("ESPERA A QUE LOS CIRCULOS", 350, 560);
-  text("LLEGUEN A LA ZONA BLANCA", 350, 580);
-  text("Y HAZ CLIC A TIEMPO", 350, 600);
+  text("ESPERA A QUE LOS CIRCULOS", centroX, 560);
+  text("LLEGUEN A LA ZONA BLANCA", centroX, 580);
+  text("Y HAZ CLIC A TIEMPO", centroX, 600);
 }
 
 // ==========================================
@@ -584,21 +586,20 @@ function terminarPartida() {
 
 function dibujarFinal() {
   let centroX = 450;
-let centroY = 325; 
-  
-  noStroke();
 
+  noStroke();
   textFont("Vineta BT");
+  textAlign(CENTER, CENTER);
 
   fill("#FF007A");
   textSize(40);
-  text("GAME OVER", 350, 250);
+  text("GAME OVER", centroX, 250);
 
   fill("#FFFFFF");
   textSize(25);
-  text("SCORE: " + puntos, 350, 320);
+  text("SCORE: " + puntos, centroX, 320);
 
-  dibujarBoton("JUGAR DE NUEVO", 350, 420);
+  dibujarBoton("JUGAR DE NUEVO", centroX, 420);
 }
 // ==========================================
 // INTERACCIONES
@@ -619,7 +620,7 @@ function mousePressed() {
     let botonY = pantalla === "inicio" ? 465 : 420;
 
     if (
-      mx > 240 && mx < 460 &&
+     mx > 340 && mx < 560
       my > botonY - 30 && my < botonY + 30
     ) {
       iniciarPartida();
