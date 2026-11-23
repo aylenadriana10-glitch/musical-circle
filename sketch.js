@@ -262,7 +262,7 @@ function dibujarPanel() {
 }
 
 function dibujarInicio() {
-  let centroX = 370;
+  let centroX = 250;
 
   fill("#00BFFF");
   noStroke();
@@ -584,7 +584,7 @@ function terminarPartida() {
 }
 
 function dibujarFinal() {
-  let centroX = 370;
+  let centroX = 250;
 
   noStroke();
   textFont("Vineta BT");
@@ -617,9 +617,8 @@ function mousePressed() {
   if (pantalla === "inicio" || pantalla === "final") {
 
     let botonY = pantalla === "inicio" ? 465 : 420;
-
-  if (
-  mx > 260 && mx < 480 &&
+if (
+  mx > 140 && mx < 360 &&
   my > botonY - 30 && my < botonY + 30
 ) {
   iniciarPartida();
