@@ -589,15 +589,14 @@ function dibujarFinal() {
 
   fill("#FF007A");
   textSize(40);
-  text("GAME OVER", 250, 250);
+  text("GAME OVER", 350, 250);
 
   fill("#FFFFFF");
   textSize(25);
-  text("SCORE: " + puntos, 250, 320);
+  text("SCORE: " + puntos, 350, 320);
 
-  dibujarBoton("JUGAR DE NUEVO", 250, 420);
+  dibujarBoton("JUGAR DE NUEVO", 350, 420);
 }
-
 // ==========================================
 // INTERACCIONES
 // ==========================================
