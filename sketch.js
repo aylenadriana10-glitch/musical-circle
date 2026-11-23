@@ -1,3 +1,4 @@
+
 let particulasFondo = [];
 
 function crearParticulas() {
@@ -11,7 +12,8 @@ function crearParticulas() {
       opacidad: random(30, 110)
     });
   }
-} 
+}
+
 function dibujarFondo() {
   background("#24002F");
 
@@ -22,6 +24,7 @@ function dibujarFondo() {
     circle(p.x, p.y, p.tamano);
   }
 }
+
 let pantalla = "inicio";
 let puntos = 0;
 
@@ -37,6 +40,7 @@ const radioClic = 26;
 const ESCALA_JUEGO = 1.15;
 const CENTRO_X = 370;
 const CENTRO_Y = 345;
+
 // ADAPTACION A PANTALLA COMPLETA
 let escalaPantalla = 1;
 let desplazamientoX = 0;
@@ -107,7 +111,6 @@ const secciones = [
   { inicio: 246, fin: 251, velocidad: 2.3 }
 ];
 
-
 // ==========================================
 // CONFIGURACION
 // ==========================================
@@ -115,6 +118,7 @@ const secciones = [
 function setup() {
   createCanvas(windowWidth, windowHeight);
   crearParticulas();
+
   pixelDensity(1);
   textAlign(CENTER, CENTER);
 
@@ -190,23 +194,20 @@ function obtenerVelocidadMusical(tiempo) {
   return 2.3;
 }
 
-
 function obtenerTiempoViaje(tiempoGolpe) {
   let velocidad = obtenerVelocidadMusical(tiempoGolpe);
   return (680 - lineaImpacto) / (velocidad * 60);
 }
-
-
 
 // ==========================================
 // DIBUJO PRINCIPAL
 // ==========================================
 
 function draw() {
-  background("#24002F");
+  dibujarFondo();
 
-escalaPantalla = min(width / 900, height / 650);
-escalaPantalla *= 0.95;
+  escalaPantalla = min(width / 900, height / 650);
+  escalaPantalla *= 0.95;
 
   desplazamientoX = width - 900 * escalaPantalla;
   desplazamientoY = (height - 650 * escalaPantalla) / 2;
@@ -233,7 +234,6 @@ escalaPantalla *= 0.95;
   // Dibujar el video por separado
   dibujarPanel();
 }
-dibujarFondo();
 
 // ==========================================
 // VIDEO LATERAL
@@ -260,7 +260,6 @@ function dibujarPanel() {
   strokeWeight(3);
   line(x, y, x, alto);
 }
-
 
 function dibujarInicio() {
   fill("#00BFFF");
@@ -291,7 +290,6 @@ function dibujarInicio() {
   text("Y HAZ CLIC A TIEMPO", 250, 600);
 }
 
-
 // ==========================================
 // RELOJ DE LA CANCION
 // ==========================================
@@ -311,7 +309,6 @@ function obtenerTiempoCancion() {
   tiempoCancionAnterior = actual;
   return tiempoTotalCancion;
 }
-
 
 // ==========================================
 // PUNTAJE
@@ -338,10 +335,9 @@ function dibujarPuntaje() {
     );
   } else {
     fill("#FFFFFF");
-   text("SCORE: " + puntos, 5, 80);
+    text("SCORE: " + puntos, 5, 80);
   }
 }
-
 
 // ==========================================
 // JUEGO
@@ -364,9 +360,9 @@ function dibujarJuego() {
   stroke("#00BFFF");
   strokeWeight(3);
 
-for (let y of lineas) {
- line(-200, y, 670, y);
-}
+  for (let y of lineas) {
+    line(-200, y, 670, y);
+  }
 
   // Linea de impacto
   stroke("#FFFFFF");
@@ -438,7 +434,6 @@ for (let y of lineas) {
   dibujarEfectos();
 }
 
-
 // ==========================================
 // EVITAR NOTAS NORMALES EN LAS SECUENCIAS
 // ==========================================
@@ -461,7 +456,6 @@ function esTiempoDeSecuencia(tiempo) {
 
   return false;
 }
-
 
 // ==========================================
 // CREAR CIRCULOS
@@ -487,7 +481,6 @@ function nuevoCirculo(tiempoGolpe, lineaForzada = null) {
   });
 }
 
-
 // ==========================================
 // EFECTOS AL ACERTAR
 // ==========================================
@@ -510,7 +503,6 @@ function crearEfecto(x, y) {
   efectos.push({ tipo: "texto", x: x, y: y - 10, vida: 1 });
   efectos.push({ tipo: "anillo", x: x, y: y, vida: 1 });
 }
-
 
 function dibujarEfectos() {
   for (let i = efectos.length - 1; i >= 0; i--) {
@@ -549,7 +541,6 @@ function dibujarEfectos() {
   }
 }
 
-
 // ==========================================
 // BOTONES
 // ==========================================
@@ -572,7 +563,6 @@ function dibujarBoton(textoBoton, x, y) {
   rectMode(CORNER);
 }
 
-
 // ==========================================
 // FINALIZAR PARTIDA
 // ==========================================
@@ -585,9 +575,8 @@ function terminarPartida() {
   musicaJuego.currentTime = 0;
 }
 
-
 function dibujarFinal() {
-  background("#24002F");
+  dibujarFondo();
   noStroke();
 
   textFont("Vineta BT");
@@ -603,10 +592,10 @@ function dibujarFinal() {
   dibujarBoton("JUGAR DE NUEVO", 250, 420);
 }
 
-
 // ==========================================
 // INTERACCIONES
 // ==========================================
+
 function mousePressed() {
 
   // Convertir coordenadas de pantalla a coordenadas del juego
@@ -678,7 +667,8 @@ function iniciarPartida() {
     videoChica.loop();
   }
 }
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  crearParticulas();
 }
-
