@@ -582,7 +582,6 @@ function terminarPartida() {
 }
 
 function dibujarFinal() {
-  dibujarFondo();
   noStroke();
 
   textFont("Vineta BT");
