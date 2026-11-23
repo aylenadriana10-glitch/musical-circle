@@ -620,12 +620,12 @@ function mousePressed() {
     let botonY = pantalla === "inicio" ? 465 : 420;
 
     if (
-     mx > 340 && mx < 560
-      my > botonY - 30 && my < botonY + 30
-    ) {
-      iniciarPartida();
-    }
-
+  mx > 340 && mx < 560 &&
+  my > botonY - 30 && my < botonY + 30
+) {
+  iniciarPartida();
+}
+    
   } else if (pantalla === "juego") {
 
     for (let i = circulos.length - 1; i >= 0; i--) {
