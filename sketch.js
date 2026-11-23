@@ -262,7 +262,7 @@ function dibujarPanel() {
 }
 
 function dibujarInicio() {
-  let centroX = 450;
+  let centroX = 370;
 
   fill("#00BFFF");
   noStroke();
@@ -292,7 +292,6 @@ function dibujarInicio() {
   text("LLEGUEN A LA ZONA BLANCA", centroX, 580);
   text("Y HAZ CLIC A TIEMPO", centroX, 600);
 }
-
 // ==========================================
 // RELOJ DE LA CANCION
 // ==========================================
@@ -585,7 +584,7 @@ function terminarPartida() {
 }
 
 function dibujarFinal() {
-  let centroX = 450;
+  let centroX = 370;
 
   noStroke();
   textFont("Vineta BT");
@@ -619,8 +618,8 @@ function mousePressed() {
 
     let botonY = pantalla === "inicio" ? 465 : 420;
 
-    if (
-  mx > 340 && mx < 560 &&
+  if (
+  mx > 260 && mx < 480 &&
   my > botonY - 30 && my < botonY + 30
 ) {
   iniciarPartida();
