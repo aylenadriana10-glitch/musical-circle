@@ -318,8 +318,13 @@ function dibujarPuntaje() {
   textFont("Vineta BT");
   textSize(22);
 
+  // Posicion fija del SCORE
+  let posicionX = 5;
+  let posicionY = 80;
+
   if (puntos >= 1000) {
     let mezcla = (sin(frameCount * 0.12) + 1) / 2;
+
     let colorMarcador = lerpColor(
       color("#FF007A"),
       color("#00BFFF"),
@@ -330,12 +335,13 @@ function dibujarPuntaje() {
 
     text(
       "SCORE: " + puntos,
-      350 + random(-2.5, 2.5),
-      55 + random(-2.5, 2.5)
+      posicionX + random(-2.5, 2.5),
+      posicionY + random(-2.5, 2.5)
     );
+
   } else {
     fill("#FFFFFF");
-    text("SCORE: " + puntos, 5, 80);
+    text("SCORE: " + puntos, posicionX, posicionY);
   }
 }
 
